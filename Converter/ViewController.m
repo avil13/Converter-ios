@@ -12,11 +12,19 @@
 
 @end
 
+NSArray *_pikerViewArray;
+
+
 @implementation ViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    _myPickerView.delegate = self;
+    _myPickerView.dataSource = self;
+
+    _pikerViewArray = @[@"RUB", @"EUR", @"USD"];
 }
 
 
@@ -24,6 +32,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+// Настройка pickerView ---
+// Выбрали валюту
+- (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    _toVal.text = [_pikerViewArray objectAtIndex:row];
+}
+
+- (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return _pikerViewArray.count;
+}
+
+- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return _pikerViewArray[row];
+}
+// /pickerView
+
+
+
+
+// Update value in input
 
 - (IBAction)updateVal:(id)sender {
 

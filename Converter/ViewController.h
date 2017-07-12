@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *toVal;
 
 @property (weak, nonatomic) IBOutlet UITextField *inputFrom;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *myPickerView;
 
 @end
 
