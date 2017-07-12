@@ -24,6 +24,9 @@ NSArray *_pikerViewArray;
     _myPickerView.delegate = self;
     _myPickerView.dataSource = self;
 
+    _secontPickerView.delegate = self;
+    _secontPickerView.dataSource = self;
+
     _pikerViewArray = @[@"RUB", @"EUR", @"USD"];
 }
 
@@ -36,7 +39,11 @@ NSArray *_pikerViewArray;
 // Настройка pickerView ---
 // Выбрали валюту
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    _toVal.text = [_pikerViewArray objectAtIndex:row];
+    NSString * txt;
+
+    txt = [NSString stringWithFormat:@"%@ %ld", [_pikerViewArray objectAtIndex:row], (long)pickerView.tag];
+
+    _toVal.text = txt;
 }
 
 - (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
