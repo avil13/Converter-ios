@@ -25,5 +25,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)updateVal:(id)sender {
+
+    _toVal.text = [self getVal];
+}
+
+- (NSString *) getVal {
+    NSString * txt = _inputFrom.text;
+
+    if([txt isEqual: @""]){
+        txt = @"0";
+    }
+    
+    return txt;
+}
 
 @end
