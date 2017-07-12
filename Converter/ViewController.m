@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ConverterController.h"
 
 @interface ViewController ()
 
@@ -21,6 +22,11 @@ NSArray *_pikerViewArray;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    ConverterController*converterController;
+
+    converterController = [[ConverterController alloc]init];
+
+    
     _myPickerView.delegate = self;
     _myPickerView.dataSource = self;
 
@@ -39,11 +45,15 @@ NSArray *_pikerViewArray;
 // Настройка pickerView ---
 // Выбрали валюту
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    NSString * txt;
+//    NSString * txt;
+//    txt = [NSString stringWithFormat:@"%@ %ld", [_pikerViewArray objectAtIndex:row], (long) pickerView.tag];
 
-    txt = [NSString stringWithFormat:@"%@ %ld", [_pikerViewArray objectAtIndex:row], (long)pickerView.tag];
+    NSString *val = [self getVal] ;
 
-    _toVal.text = txt;
+    NSString *from = [self toStr:[_myPickerView selectedRowInComponent:0]];
+    NSString *to = [self toStr:[_secontPickerView selectedRowInComponent:0]];
+
+    _toVal.text = [ConverterController convert :val :from :to];
 }
 
 - (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
@@ -79,4 +89,18 @@ NSArray *_pikerViewArray;
     return txt;
 }
 
+-(NSString *) toStr: (char *)val{
+    return [NSString stringWithFormat:@"%@", val];
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
