@@ -11,7 +11,7 @@
 @implementation ConverterController
 
 +(NSString *) convert: (NSString *) value :(NSString *) currencyIn :(NSString *) currencyOut{
-    if(value == nil || currencyIn == nil || currencyOut == nil){
+    if(value == nil || [value  isEqual: @""] || currencyIn == nil || currencyOut == nil){
         NSLog(@"Empty prameter");
         return @"0";
     }

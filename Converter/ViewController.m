@@ -45,15 +45,7 @@ NSArray *_pikerViewArray;
 // Настройка pickerView ---
 // Выбрали валюту
 - (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-//    NSString * txt;
-//    txt = [NSString stringWithFormat:@"%@ %ld", [_pikerViewArray objectAtIndex:row], (long) pickerView.tag];
-
-    NSString *val = [self getVal] ;
-
-    NSString *from = [self toStr:[_myPickerView selectedRowInComponent:0]];
-    NSString *to = [self toStr:[_secontPickerView selectedRowInComponent:0]];
-
-    _toVal.text = [ConverterController convert :val :from :to];
+    [self updateData]; // обновляем данные
 }
 
 - (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
@@ -73,11 +65,10 @@ NSArray *_pikerViewArray;
 
 
 // Update value in input
-
 - (IBAction)updateVal:(id)sender {
-
-    _toVal.text = [self getVal];
+    [self updateData];
 }
+
 
 - (NSString *) getVal {
     NSString * txt = _inputFrom.text;
@@ -89,8 +80,15 @@ NSArray *_pikerViewArray;
     return txt;
 }
 
--(NSString *) toStr: (char *)val{
-    return [NSString stringWithFormat:@"%@", val];
+
+
+-(void) updateData{
+    NSString *val = [self getVal] ;
+
+    NSString *from = _pikerViewArray [(long)[_myPickerView selectedRowInComponent:0]];
+    NSString *to = _pikerViewArray[(long)[_secontPickerView selectedRowInComponent:0]];
+
+    _toVal.text = [ConverterController convert :val :from :to];
 }
 
 @end
