@@ -15,7 +15,6 @@
 		073A51B81F13762F00E45682 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073A51B61F13762F00E45682 /* LaunchScreen.storyboard */; };
 		073A51C31F13763000E45682 /* ConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A51C21F13763000E45682 /* ConverterTests.m */; };
 		073A51CE1F13763000E45682 /* ConverterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A51CD1F13763000E45682 /* ConverterUITests.m */; };
-		073A51DD1F163FAB00E45682 /* HttpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A51DC1F163FAB00E45682 /* HttpController.m */; };
 		073A51E01F16756600E45682 /* ConverterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 073A51DF1F16756600E45682 /* ConverterController.m */; };
 /* End PBXBuildFile section */
 
@@ -53,8 +52,6 @@
 		073A51C91F13763000E45682 /* ConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConverterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		073A51CD1F13763000E45682 /* ConverterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConverterUITests.m; sourceTree = "<group>"; };
 		073A51CF1F13763000E45682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		073A51DB1F163FAB00E45682 /* HttpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpController.h; sourceTree = "<group>"; };
-		073A51DC1F163FAB00E45682 /* HttpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpController.m; sourceTree = "<group>"; };
 		073A51DE1F16756600E45682 /* ConverterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverterController.h; sourceTree = "<group>"; };
 		073A51DF1F16756600E45682 /* ConverterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverterController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,8 +108,6 @@
 				073A51AC1F13762F00E45682 /* AppDelegate.m */,
 				073A51AE1F13762F00E45682 /* ViewController.h */,
 				073A51AF1F13762F00E45682 /* ViewController.m */,
-				073A51DB1F163FAB00E45682 /* HttpController.h */,
-				073A51DC1F163FAB00E45682 /* HttpController.m */,
 				073A51B11F13762F00E45682 /* Main.storyboard */,
 				073A51B41F13762F00E45682 /* Assets.xcassets */,
 				073A51B61F13762F00E45682 /* LaunchScreen.storyboard */,
@@ -287,7 +282,6 @@
 				073A51B01F13762F00E45682 /* ViewController.m in Sources */,
 				073A51AD1F13762F00E45682 /* AppDelegate.m in Sources */,
 				073A51AA1F13762F00E45682 /* main.m in Sources */,
-				073A51DD1F163FAB00E45682 /* HttpController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,6 @@
 #import "ConverterController.h"
 
 @interface ViewController ()
-
 @end
 
 NSArray *_pikerViewArray;
@@ -22,13 +21,9 @@ NSArray *_pikerViewArray;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    ConverterController*converterController;
+    ConverterController *converterController;
 
-    converterController = [[ConverterController alloc]init];
-
-    
-    _myPickerView.delegate = self;
-    _myPickerView.dataSource = self;
+     converterController = [[ConverterController alloc]init];
 
     _secontPickerView.delegate = self;
     _secontPickerView.dataSource = self;
@@ -44,24 +39,22 @@ NSArray *_pikerViewArray;
 
 // Настройка pickerView ---
 // Выбрали валюту
-- (void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     [self updateData]; // обновляем данные
 }
 
-- (NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     return _pikerViewArray.count;
 }
 
-- (NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     return _pikerViewArray[row];
 }
 // /pickerView
-
-
 
 
 // Update value in input
@@ -70,26 +63,26 @@ NSArray *_pikerViewArray;
 }
 
 
-- (NSString *) getVal {
-    NSString * txt = _inputFrom.text;
+- (NSString *)getVal {
+    NSString *txt = [NSString stringWithFormat:@"%@", _inputFrom.text];
 
-    if([txt isEqual: @""]){
+    if ([txt isEqual:@""]) {
         txt = @"0";
     }
-    
+
     return txt;
 }
 
 
+- (void)updateData {
+    NSString *val = [self getVal];
 
--(void) updateData{
-    NSString *val = [self getVal] ;
+    int to;
+    to = [_secontPickerView selectedRowInComponent:0];
 
-    NSString *from = _pikerViewArray [(long)[_myPickerView selectedRowInComponent:0]];
-    NSString *to = _pikerViewArray[(long)[_secontPickerView selectedRowInComponent:0]];
-
-    _toVal.text = [ConverterController convert :val :from :to];
+    _toVal.text = [ConverterController convert :val :to];
 }
+
 
 @end
 

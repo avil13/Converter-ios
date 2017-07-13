@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface ConverterController : NSObject
-+ (NSString *) convert: (NSString *) value :(NSString *) currencyIn :(NSString *) currencyOut;
+
++ (NSString *) convert: (NSString *) value :(int) currencyOut;
+
+
 @end

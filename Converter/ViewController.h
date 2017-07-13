@@ -13,7 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *inputFrom;
 
-@property (weak, nonatomic) IBOutlet UIPickerView *myPickerView;
 @property (weak, nonatomic) IBOutlet UIPickerView *secontPickerView;
 
 @end

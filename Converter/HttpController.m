@@ -13,7 +13,7 @@
 - (void) viewDidLoad
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]init];
-    [request setURL:[NSURL URLWithString:@"http://api.fixer.io/latest?base=EUR&symbols=USD,RUB"]];
+    [request setURL:[NSURL URLWithString:@"http://api.fixer.io/latest?base=EUR&symbols=RUB"]];
 
     NSURLSessionDataTask *task = [[self getUrlSession] dataTaskWithRequest
                                   :request completionHandler
