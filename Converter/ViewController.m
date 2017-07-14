@@ -34,14 +34,12 @@ NSArray *_pikerViewArray;
     _pikerViewArray = @[@"RUB", @"USD", @"EUR"];
 }
 
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-// Настройка pickerView ---
-// Выбрали валюту
+// pickerView
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     [self updateData]; // обновляем данные
 }
@@ -65,8 +63,7 @@ NSArray *_pikerViewArray;
     [self updateData];
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     /*  limit to only numeric characters  */
     NSCharacterSet *myCharSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
     for (int i = 0; i < [string length]; i++) {
@@ -80,8 +77,7 @@ NSArray *_pikerViewArray;
     NSUInteger newLength = [_inputFrom.text length] + [string length] - range.length;
     return (newLength > 9) ? NO : YES;
 }
-//@
-
+//
 
 - (NSString *)getVal {
     NSString *txt = [NSString stringWithFormat:@"%@", _inputFrom.text];
@@ -93,25 +89,13 @@ NSArray *_pikerViewArray;
     return txt;
 }
 
-
 - (void)updateData {
     NSString *val = [self getVal];
-//    NSLog(@"value: %@", val);
+
     int to;
     to = [_secontPickerView selectedRowInComponent:0];
 
     _toVal.text = [ConverterController convert:val :to];
 }
 
-
 @end
-
-
-
-
-
-
-
-
-
-
