@@ -23,12 +23,15 @@ NSArray *_pikerViewArray;
 
     ConverterController *converterController;
 
-     converterController = [[ConverterController alloc]init];
+    converterController = [[ConverterController alloc] init];
+
+    _inputFrom.delegate = self;
+    _inputFrom.keyboardType = UIKeyboardTypeDecimalPad;
 
     _secontPickerView.delegate = self;
     _secontPickerView.dataSource = self;
 
-    _pikerViewArray = @[@"RUB", @"EUR", @"USD"];
+    _pikerViewArray = @[@"RUB", @"USD", @"EUR"];
 }
 
 
@@ -62,6 +65,23 @@ NSArray *_pikerViewArray;
     [self updateData];
 }
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    /*  limit to only numeric characters  */
+    NSCharacterSet *myCharSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    for (int i = 0; i < [string length]; i++) {
+        unichar c = [string characterAtIndex:i];
+        if ([myCharSet characterIsMember:c]) {
+            return YES;
+        }
+    }
+
+    /*  limit the users input to only 9 characters  */
+    NSUInteger newLength = [_inputFrom.text length] + [string length] - range.length;
+    return (newLength > 9) ? NO : YES;
+}
+//@
+
 
 - (NSString *)getVal {
     NSString *txt = [NSString stringWithFormat:@"%@", _inputFrom.text];
@@ -76,11 +96,11 @@ NSArray *_pikerViewArray;
 
 - (void)updateData {
     NSString *val = [self getVal];
-
+//    NSLog(@"value: %@", val);
     int to;
     to = [_secontPickerView selectedRowInComponent:0];
 
-    _toVal.text = [ConverterController convert :val :to];
+    _toVal.text = [ConverterController convert:val :to];
 }
 
 

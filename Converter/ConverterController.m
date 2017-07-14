@@ -29,7 +29,7 @@ static NSMutableArray *currencyData;
         [currencyData addObject:@[key, obj]];
     }];
 
-    NSLog(@"--> %@", currencyData);
+//    NSLog(@"--> %@", currencyData);
 
     return self;
 }
@@ -37,11 +37,11 @@ static NSMutableArray *currencyData;
 
 + (NSString *)convert:(NSString *)value :(int)currencyOut {
 
-    NSLog(@"==> %@ %d", value, currencyOut);
+//    NSLog(@"==> %@ %d", value, currencyOut);
 
     if ([value isEqual:@"0"]) {
         NSLog(@"Empty prameter");
-        return @"0";
+        return [NSString stringWithFormat:@"%.04f", [value doubleValue]];
     }
 
     // сравниваем RUB и RUB
@@ -51,7 +51,7 @@ static NSMutableArray *currencyData;
 
     double rate = [self getRate:currencyOut];
 
-    NSLog(@"---> %f <---", rate);
+//    NSLog(@"---> %f <---", rate);
 
     double res = [value doubleValue] * rate;
 
